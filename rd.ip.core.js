@@ -287,7 +287,7 @@ rd.ip.core.nextProfile = function() {
 			$('.registration-qr').css("display", "none");
 		}
 		$('.interest-to').html(me.profiles[me.currentProfile].data[9]);
-		$('.background').css("background-image", "url('" + me.profiles[me.currentProfile].data[10] + "')");
+		$('.background').html(me.profiles[me.currentProfile].data[10]);
 		
 		if(me.currentProfile < (me.totalProfile - 1))
 			me.currentProfile++;
