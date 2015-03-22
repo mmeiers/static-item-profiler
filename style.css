@@ -96,6 +96,12 @@ td {
 	width: 500px;
 }
 
+.location {
+	font-size: 30px;
+	margin: 0 0 0 100px;
+	width: 500px;
+}
+
 a {
 	font-size: 30px;
 	margin-left: 100px;

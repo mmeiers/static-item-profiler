@@ -275,6 +275,7 @@ rd.ip.core.nextProfile = function() {
 		}
 		$('.caption').html(me.profiles[me.currentProfile].data[4]);
 		$('.date').html(me.profiles[me.currentProfile].data[5]);
+        $('.location').html(me.profiles[me.currentProfile].data[11]);
 		$('.time-location').html(me.profiles[me.currentProfile].data[6]);
 		$('.registration-url').html(me.profiles[me.currentProfile].data[7]);
 		$('.registration-url').attr("href", me.profiles[me.currentProfile].data[7]);
