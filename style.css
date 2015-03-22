@@ -2,7 +2,7 @@
 body
 {
 	width: 100%;
-	color: #ffffff;
+	color: #ccc;
 	font-family: 'Arial Narrow', Helvetica, Arial, sans-serif;
 	font-size: 32px;
 	/*disable selection*/
@@ -41,7 +41,7 @@ td {
 	line-height:80px;
 	margin: 60px 20px 30px 40px;
 	padding:0;
-	color: #fff;
+	color: #ccc;
 }
 	
 .subtitle {
@@ -87,7 +87,7 @@ td {
 	font-size: 80px;
 	font-weight:normal;
 	line-height:80px;
-	color: #fff;
+	color: #ccc;
 	margin: 60px 0 15px 100px;
 	width: 500px;
 }
@@ -109,7 +109,7 @@ td {
 a {
 	font-size: 30px;
 	margin-left: 100px;
-	color: #ffffff;
+	color: #ccc;
 	text-decoration: none;
 }
 
