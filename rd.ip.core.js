@@ -265,14 +265,8 @@ rd.ip.core.nextProfile = function() {
 		$('.title').html(me.profiles[me.currentProfile].data[0]);
 		$('.subtitle').html(me.profiles[me.currentProfile].data[1]);
 		$('.description').html(me.profiles[me.currentProfile].data[2]);
-		$('.photo').attr("alt", "No Photo");
-		$('.photo').removeAttr("src");
-		$('.photo').attr("src", me.profiles[me.currentProfile].data[3]);
-		if(me.profiles[me.currentProfile].data[3].length > 0){
-			$('.photo').css("display", "inline");
-		} else {
-			$('.photo').css("display", "none");
-		}
+        $('.time2').html(me.profiles[me.currentProfile].data[3]);
+		
 		$('.caption').html(me.profiles[me.currentProfile].data[4]);
 		$('.date').html(me.profiles[me.currentProfile].data[5]);
         $('.location').html(me.profiles[me.currentProfile].data[11]);
@@ -301,8 +295,6 @@ rd.ip.core.preloadImages = function() {
 	for(var i=0; i<me.totalProfile; i++){
 		var c=new Image();
 		c.src = me.profiles[i].data[10];
-		var d=new Image();
-		d.src = me.profiles[i].data[3];
 		var e=new Image();
 		e.src = me.profiles[i].data[8];
 	}
