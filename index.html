@@ -1,0 +1,190 @@
+
+<html><head>
+<link rel="stylesheet" type="text/css" href="style.css" />
+
+<script type="text/javascript" src="http://c1487146.r46.cf2.rackcdn.com/glMatrix-0.9.5.min.js"></script>
+<script type="text/javascript" src="http://c1487146.r46.cf2.rackcdn.com/rd.lic.js"></script>
+<script type="text/javascript" src="http://c1487146.r46.cf2.rackcdn.com/rd.ip.core.js"></script>
+<script type="text/javascript" src="http://c1487146.r46.cf2.rackcdn.com/rd.ip.scene.js"></script>
+<script type="text/javascript" src="http://c1487146.r46.cf2.rackcdn.com/rd.ip.profile.js"></script>
+<script type="text/javascript" src="http://c1487146.r46.cf2.rackcdn.com/rd.ip.floating-profile.js"></script>
+<script type="text/javascript" src="http://c1487146.r46.cf2.rackcdn.com/rd.ip.profile-details.js"></script>
+<script type="text/javascript" src="http://c1487146.r46.cf2.rackcdn.com/rd.ip.featured-profile.js"></script>
+<script type="text/javascript" src="http://c1487146.r46.cf2.rackcdn.com/rd.ip.info-profile.js"></script>
+<script type="text/javascript" src="http://c1487146.r46.cf2.rackcdn.com/rd.ip.filter.js"></script>
+<script type="text/javascript" src="http://c1487146.r46.cf2.rackcdn.com/rd.ip.keyboard.js"></script>
+<script type="text/javascript" src="http://c1487146.r46.cf2.rackcdn.com/rd.ip.data.js"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi?autoload=%7B%22modules%22%3A%5B%7B%22name%22%3A%22visualization%22%2C%22version%22%3A%221%22%7D%5D%7D"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+			
+<style>
+  @font-face{
+    font-family:HelveticaNeueLTStd;
+    src:url('http://www.risedisplaycreative.com/contractors/Fonts/HelveticaNeueLTStd-LtCn_0.otf');
+    }
+</style>
+
+<script id="shader-fs" type="x-shader/x-fragment">
+    #ifdef GL_ES
+    precision highp float;
+    #endif
+
+    varying vec2 vTextureCoord;
+    uniform sampler2D uSampler;
+    uniform float uColor;
+
+    void main(void) {
+        vec4 textureColor = texture2D(uSampler, vec2(vTextureCoord.s, vTextureCoord.t));
+        
+        //apply transpacency only if this part of the picture in not transparent by nature
+        if (textureColor.a > 0.0)
+            textureColor.a = uColor; 
+        
+        gl_FragColor = textureColor;
+    }
+</script>
+
+<script id="shader-vs" type="x-shader/x-vertex">
+    attribute vec3 aVertexPosition;
+    attribute vec2 aTextureCoord;
+    uniform mat4 uMVMatrix;
+    uniform mat4 uPMatrix;
+    varying vec2 vTextureCoord;
+
+    void main(void) {
+        gl_Position = uPMatrix * uMVMatrix * vec4(aVertexPosition, 1.0);
+        vTextureCoord = aTextureCoord;
+    }
+</script>
+
+<script type="text/javascript">
+
+    if (!window['rd']) { window['rd'] = {}; }
+    if (!window['rd']['ip']) { window['rd']['ip'] = {}; }
+
+    rd.ip.globals = {};
+
+    //SEARCHABLE SPREADSHEET COLUMNS
+    rd.ip.globals.SEARCHABLE_COLUMNS = [0, 1]; //Column IDs are 0 based. ID of the first column is 0.
+
+    //SCENE GLOBALS
+    rd.ip.globals.INACTIVITY_INTERVAL = 300; //in seconds - hides and resets filters, keyboard, Profile Details card
+    rd.ip.globals.SCENE_WIDTH = 10; //width of the WebGL view
+    rd.ip.globals.SCENE_HEIGHT = 10; //height of the WebGL view
+
+    //FEATURED PROFILES
+    rd.ip.globals.FEATURED_PROFILES_ENABLED = true;
+    rd.ip.globals.FEATURED_PROFILES_DURATION = 5; //duration (in seconds) each profile card is shown
+
+    rd.ip.globals.ELEMENT_FEATURED_PROFILE_CARD = "featured-profile-card";
+    rd.ip.globals.ELEMENT_FEATURED_PROFILE_NAME = "featured-profile-name";
+    rd.ip.globals.ELEMENT_FEATURED_PROFILE_LEVEL = "featured-profile-level";
+    rd.ip.globals.ELEMENT_FEATURED_PROFILE_IMAGE = "featured-profile-image";
+
+    // FLOATING PROFILE
+    rd.ip.globals.FLOATING_PROFILE_BG_IMAGE_SRC = "./images/bg-profile-floating.gif";
+    rd.ip.globals.MAX_ACTIVE_CARDS = 20; //maximum number of floating cards visible at the same time
+    rd.ip.globals.NO_IMAGE_URL = "http://www.risedisplay.com/gadgets/itemprofilerwebgl/images/no-image.jpg"; //"http://www.risedisplaycreative.com/item_profiler_v2/no-image.jpg";
+    rd.ip.globals.FLOATING_PROFILE_NAME_STYLE_FONT = "24px arial"; //same as CSS font style. You can specify font-style , font-variant , font-weight , font-size , line-height and font-family
+    rd.ip.globals.FLOATING_PROFILE_NAME_STYLE_COLOR = "#13487E";
+    rd.ip.globals.FLOATING_PROFILE_LEVEL_STYLE_FONT = "16px arial";
+    rd.ip.globals.FLOATING_PROFILE_LEVEL_STYLE_COLOR = "#13487E";
+
+    // PROFILE DETAILS
+    rd.ip.globals.ELEMENT_PROFILE_DETAILS = "profile-details-card";
+    rd.ip.globals.ELEMENT_PROFILE_DETAILS_PAGE1 = "profile-details-page1";
+    rd.ip.globals.ELEMENT_PROFILE_DETAILS_PAGE2 = "profile-details-page2";
+
+    rd.ip.globals.ELEMENT_PROFILE_DETAILS_NAME = "profile-details-name";
+    rd.ip.globals.ELEMENT_PROFILE_DETAILS_LEVEL = "profile-details-level";
+    rd.ip.globals.ELEMENT_PROFILE_DETAILS_IMAGE = "profile-details-image";
+    rd.ip.globals.ELEMENT_PROFILE_DETAILS_BIOGRAPHY = "profile-details-biography";
+    rd.ip.globals.ELEMENT_PROFILE_DETAILS_FACTS = "profile-details-facts";
+
+    // VIRTUAL KEYBOARD
+    rd.ip.globals.ELEMENT_KEYBOARD = "keyboard";
+    rd.ip.globals.ELEMENT_KEYBOARD_TEXTBOX = "keyboard-textbox";
+    rd.ip.globals.ELEMENT_VIRTUAL_KEYBOARD = "virtual-keyboard";
+    rd.ip.globals.VIRTUAL_KEYBOARD_ENABLED = true;
+
+    // FILTERS
+    rd.ip.globals.ELEMENT_FILTER_BOX_1 = "filter-box-1";
+    rd.ip.globals.ELEMENT_FILTER_LIST_1 = "filter-list-1";
+    rd.ip.globals.ELEMENT_FILTER_BOX_2 = "filter-box-2";
+    rd.ip.globals.ELEMENT_FILTER_LIST_2 = "filter-list-2";
+
+    // SPREADSHEET DATA
+    rd.ip.globals.NUMBER_OF_COLUMNS = 11;  //expected  number of columns in spreadsheet
+
+    //IMAGE PROXY
+    rd.ip.globals.USE_IMAGE_PROXY = false;
+    rd.ip.globals.IMAGE_PROXY_PATH = "http://localhost:9494/?url=";
+
+    var zoomDirection = 1; // 1 = zoom in; -1 = zoom out; 0 = no zoom i.e. nothing is moving
+    var minSpeedX = 0.03; // slowest speed cards move left or right. It goes back to this speed after spin.
+    var speedX = 0.0; // > 0 move right; < 0 move left; 0 nothing is moving
+
+    rd.ip.globals.createProfile = function(profile, data) {
+        // map spreadsheeet columns to profile fields
+        profile.firstName = data[0];
+        profile.lastName = data[1];
+        profile.level = data[2];
+        profile.imageUrl = data[3];
+        profile.biography = data[4];
+        profile.facts = data[5];
+        profile.featured = data[6];
+        profile.filter1 = data[7] ? data[7] : "Other";
+        profile.filter2 = data[8] ? data[8] : "Other";
+    };
+</script>
+</head>
+<body class="background" style="background-color: transparent;">
+   <div class="mainContent">
+	   <table>
+			<tr>
+				<td class="mainLeft" style="width:65%">
+					<h1 class="title"></h1>
+					<h3 class="subtitle"></h3>
+					<p class="description"></p>
+					<!--<table>
+						<tr>
+							<td style="width 60%">
+								<p class="description"></p>
+							</td>
+							<td style="width 40%">
+								<table>
+									<tr>
+										<td><img class="photo" src="" alt="No Photo" /></td>
+									</tr>
+									<tr>
+										<td><p class="caption"></p></td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table>-->
+				</td>
+             
+				<td class="mainRight" style="width:35%">
+					<h1 class="date"></h1> 
+					<p class="time-location"></p>
+					<hr />
+					<h1 class="register-label">Register</h1> 
+					<a href="#" class="registration-url"></a> <br>
+					<img src="" alt="No Photo" class="registration-qr" />
+					<hr />
+					<h1 class="interest-label">Of Interest To</h1> 
+					<p class="interest-to"></p>
+				</td>
+			</tr>
+	   </table>
+   </div>
+    <canvas id="my-canvas" style="border: none;" width="1920" height="800" onMouseMove="handleMouseMove()" onMouseDown="handleMouseDown()" onMouseUp="handleMouseUp()" onMouseOut="handleMouseUp()" onClick="handleClick()"></canvas>
+    <div id="err" style="width:100%; height:100%; left:0; top:0; visibility:hidden; position:absolute; z-index:1000; text-align:center; vertical-align:middle; display:table-cell; line-height:400px; background-color:Black; color:White;"></div>
+
+    <script type="text/javascript">
+        rd.ip.core.init();
+    </script>
+
+</body></html>
