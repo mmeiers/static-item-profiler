@@ -235,7 +235,7 @@ rd.ip.core.restartTimer = function() {
 
 rd.ip.core.onTimer = function() {
     me.restartTimer();
-	$('.background').slideUp('slow', 0, function() {
+	$('.background').fadeTo('slow', 0, function() {
 		me.nextProfile();
 		$('.background').css('opacity', 1);
 		
