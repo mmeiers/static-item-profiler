@@ -268,12 +268,13 @@ rd.ip.core.nextProfile = function() {
         $('.time2').html(me.profiles[me.currentProfile].data[3]);		
 		$('.caption').html(me.profiles[me.currentProfile].data[4]);
 		$('.date').html(me.profiles[me.currentProfile].data[5]);
-        $('.location').html(me.profiles[me.currentProfile].data[11]);
 		$('.time-location').html(me.profiles[me.currentProfile].data[6]);
 		$('.registration-url').html(me.profiles[me.currentProfile].data[7]);
 		$('.registration-qr').html(me.profiles[me.currentProfile].data[8]);
 		$('.interest-to').html(me.profiles[me.currentProfile].data[9]);
-		$('.background').css("background-image", "url('" + me.profiles[me.currentProfile].data[10] + "')");
+        $('.website').html(me.profiles[me.currentProfile].data[10]);
+        $('.location').html(me.profiles[me.currentProfile].data[11]);
+		$('.background').css("background-image", "url('" + me.profiles[me.currentProfile].data[12] + "')");
 		
 		if(me.currentProfile < (me.totalProfile - 1))
 			me.currentProfile++;
@@ -285,7 +286,7 @@ rd.ip.core.nextProfile = function() {
 rd.ip.core.preloadImages = function() {
 	for(var i=0; i<me.totalProfile; i++){
 		var c=new Image();
-		c.src = me.profiles[i].data[10];
+		c.src = me.profiles[i].data[12];
 		
 	}
 };
