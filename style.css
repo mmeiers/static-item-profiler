@@ -17,7 +17,18 @@ table {width:100%;}
 	.mainLeft, .mainRight {
 		vertical-align:top; 
 	
-	}
+}
+
+
+.background {
+	position: absolute;
+	top:0;
+	left:0;
+	height:100vh;
+	width::100vw;
+	background-repeat: none;
+	
+}
 	
 	
 .mainRight {
