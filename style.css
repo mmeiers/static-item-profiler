@@ -8,13 +8,15 @@ body
 	/*disable selection*/
 	user-select: none;
 	-webkit-user-select: none;
+	margin:0;
+    overflow:hidden;
+    background-size:contain; 
 }
 
 table {width:100%;}
 	.mainLeft, .mainRight {
 		vertical-align:top; 
 	
-		
 	}
 	
 	
@@ -104,6 +106,36 @@ td {
 	padding-top:.5vw;
 	color:#fff;
 	font-weight: 200;
+}
+
+#background {
+	overflow: hidden;
+	position: relative;
+	text-align: center;
+	
+}
+
+#background img {
+    min-width:100%;
+	-webkit-animation-duration: 205s;
+    -webkit-animation-name: slidein;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-direction: alternate;
+}
+
+@-webkit-keyframes "slidein" {
+ 25% {
+   -webkit-transform: scale(1.5) translate3d(-300px, 0px, 0px);
+   transform: scale(1.5) translate3d(-300px, 0px, 0px);
+ }
+ 50% {
+   -webkit-transform: scale(1) translate3d(0px, 0px, 0px);
+   transform: scale(1) translate3d(0px, 0px, 0px);
+ }
+ 75% {
+   -webkit-transform: scale(1.5) translate3d(+300px, 0px, 0px);
+   transform: scale(1.5) translate3d(+300px, 0px, 0px);
+ }
 }
 
 
