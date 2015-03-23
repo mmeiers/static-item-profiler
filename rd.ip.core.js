@@ -273,7 +273,7 @@ rd.ip.core.nextProfile = function() {
 		$('.time-location').html(me.profiles[me.currentProfile].data[6]);
 		$('.registration-url').html(me.profiles[me.currentProfile].data[7]);
 		$('.registration-url').attr("href", me.profiles[me.currentProfile].data[7]);
-		$('.registration-qr').html(me.profiles[me.currentProfile].data[9]);
+		$('.registration-qr').html(me.profiles[me.currentProfile].data[8]);
 		$('.interest-to').html(me.profiles[me.currentProfile].data[9]);
 		$('.background').css("background-image", "url('" + me.profiles[me.currentProfile].data[10] + "')");
 		
