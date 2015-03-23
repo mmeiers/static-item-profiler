@@ -262,16 +262,16 @@ rd.ip.core.nextProfile = function() {
 			me.currentProfile = 0;
 		me.nextProfile();
 	} else {
-		$('.title').html(me.profiles[me.currentProfile].data[0]);
-		$('.subtitle').html(me.profiles[me.currentProfile].data[1]);
-		$('.description').html(me.profiles[me.currentProfile].data[2]);
+		$('.event').html(me.profiles[me.currentProfile].data[0]);
+		$('.date').html(me.profiles[me.currentProfile].data[1]);
+		$('.time1').html(me.profiles[me.currentProfile].data[2]);
         $('.time2').html(me.profiles[me.currentProfile].data[3]);		
-		$('.caption').html(me.profiles[me.currentProfile].data[4]);
-		$('.date').html(me.profiles[me.currentProfile].data[5]);
-		$('.time-location').html(me.profiles[me.currentProfile].data[6]);
-		$('.registration-url').html(me.profiles[me.currentProfile].data[7]);
-		$('.registration-qr').html(me.profiles[me.currentProfile].data[8]);
-		$('.interest-to').html(me.profiles[me.currentProfile].data[9]);
+		$('.contact').html(me.profiles[me.currentProfile].data[4]);
+		$('.email').html(me.profiles[me.currentProfile].data[5]);
+		$('.phone').html(me.profiles[me.currentProfile].data[6]);
+		$('.cost').html(me.profiles[me.currentProfile].data[7]);
+		$('.description').html(me.profiles[me.currentProfile].data[8]);
+		$('.type').html(me.profiles[me.currentProfile].data[9]);
         $('.website').html(me.profiles[me.currentProfile].data[10]);
         $('.location').html(me.profiles[me.currentProfile].data[11]);
 		$('.background').css("background-image", "url('" + me.profiles[me.currentProfile].data[12] + "')");

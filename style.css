@@ -4,7 +4,7 @@ body
 	width: 100%;
 	color: #ffffff;
 	font-family: 'Arial Narrow', Helvetica, Arial, sans-serif;
-	font-size: 32px;
+	font-size: 20px;
 	/*disable selection*/
 	user-select: none;
 	-webkit-user-select: none;
@@ -33,109 +33,4 @@ td {
 
 }
 
-.title {
-	/*NOT WORKING font-family:HelveticaNeueLTStd;*/
-	font-family: 'Arial Narrow', Helvetica, Arial, sans-serif;
-	font-weight:normal;
-	font-size:80px;
-	line-height:80px;
-	margin: 60px 20px 30px 40px;
-	padding:0;
-	color: #fff;
-}
-	
-.subtitle {
-	font-family: 'Arial Narrow', Helvetica, Arial, sans-serif;
-	font-weight:normal;
-	font-size:50px;
-	line-height:50px;
-	padding:0;
-	margin: 0 20px 60px 40px;
-}
-
-.description {
-	/*width:740px;*/
-	margin-left: 40px;
-	margin-right: 40px;
-	vertical-align: top;
-	text-align: left;
-	font: 36px Georgia, "Times New Roman", Times, serif;
-	line-height:50px;
-}
-
-.time2 {
-	/*width:740px;*/
-	margin-left: 40px;
-	margin-right: 40px;
-	vertical-align: top;
-	text-align: left;
-	font: 36px Georgia, "Times New Roman", Times, serif;
-	line-height:50px;
-}
-
-
-.caption {
-	font-family: 'Arial Narrow', Helvetica, Arial, sans-serif;
-	font-size: 32px;
-	font-weight:normal;
-	line-height: 38px;
-	width:300px;
-	margin-top: 20px;
-}
-
-.date {
-	font-size: 80px;
-	font-weight:normal;
-	line-height:80px;
-	color: #fff;
-	margin: 60px 0 15px 100px;
-	width: 500px;
-}
-.register-label, .interest-label {
-	font-size: 70px;
-	font-weight: normal;
-	line-height: 70px;
-	color: #969696;
-	margin: 0 0 15px 100px;
-	width: 500px;
-}
-
-.time-location, .registration-url, .interest-to {
-	font-size: 30px;
-	margin: 0 0 0 100px;
-	width: 500px;
-}
-
-.location {
-	font-size: 30px;
-	margin: 0 0 0 100px;
-	width: 500px;
-}
-
-.website {
-	font-size: 30px;
-	margin: 0 0 0 100px;
-	width: 500px;
-}
-
-a {
-	font-size: 30px;
-	margin-left: 100px;
-	color: #ffffff;
-	text-decoration: none;
-}
-
-.registration-qr {
-	font-size: 30px;
-	margin: 0 0 0 100px;
-	width: 500px;
-}
-
-hr {
-	color: #999;
-	margin-left: 100px;
-	width: 480px;
-	margin-top: 50px;
-	margin-bottom: 50px;
-}
 
