@@ -265,14 +265,12 @@ rd.ip.core.nextProfile = function() {
 		$('.title').html(me.profiles[me.currentProfile].data[0]);
 		$('.subtitle').html(me.profiles[me.currentProfile].data[1]);
 		$('.description').html(me.profiles[me.currentProfile].data[2]);
-        $('.time2').html(me.profiles[me.currentProfile].data[3]);
-		
+        $('.time2').html(me.profiles[me.currentProfile].data[3]);		
 		$('.caption').html(me.profiles[me.currentProfile].data[4]);
 		$('.date').html(me.profiles[me.currentProfile].data[5]);
         $('.location').html(me.profiles[me.currentProfile].data[11]);
 		$('.time-location').html(me.profiles[me.currentProfile].data[6]);
 		$('.registration-url').html(me.profiles[me.currentProfile].data[7]);
-		$('.registration-url').attr("href", me.profiles[me.currentProfile].data[7]);
 		$('.registration-qr').html(me.profiles[me.currentProfile].data[8]);
 		$('.interest-to').html(me.profiles[me.currentProfile].data[9]);
 		$('.background').css("background-image", "url('" + me.profiles[me.currentProfile].data[10] + "')");
