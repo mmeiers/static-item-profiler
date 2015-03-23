@@ -120,8 +120,9 @@ a {
 }
 
 .registration-qr {
-	margin-left: 100px;
-	margin-top: 25px;
+	font-size: 30px;
+	margin: 0 0 0 100px;
+	width: 500px;
 }
 
 hr {

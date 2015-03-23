@@ -273,14 +273,7 @@ rd.ip.core.nextProfile = function() {
 		$('.time-location').html(me.profiles[me.currentProfile].data[6]);
 		$('.registration-url').html(me.profiles[me.currentProfile].data[7]);
 		$('.registration-url').attr("href", me.profiles[me.currentProfile].data[7]);
-		$('.registration-qr').attr("alt", "No QR");
-		$('.registration-qr').removeAttr("src");
-		$('.registration-qr').attr("src", me.profiles[me.currentProfile].data[8]);
-		if(me.profiles[me.currentProfile].data[8].length > 0){
-			$('.registration-qr').css("display", "inline");
-		} else {
-			$('.registration-qr').css("display", "none");
-		}
+		$('.registration-qr').html(me.profiles[me.currentProfile].data[9]);
 		$('.interest-to').html(me.profiles[me.currentProfile].data[9]);
 		$('.background').css("background-image", "url('" + me.profiles[me.currentProfile].data[10] + "')");
 		
@@ -295,7 +288,6 @@ rd.ip.core.preloadImages = function() {
 	for(var i=0; i<me.totalProfile; i++){
 		var c=new Image();
 		c.src = me.profiles[i].data[10];
-		var e=new Image();
-		e.src = me.profiles[i].data[8];
+		
 	}
 };
