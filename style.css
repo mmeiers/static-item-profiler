@@ -2,8 +2,8 @@
 body
 {
 	width: 100%;
-	color: #ffffff;
-	font-family: 'Arial Narrow', Helvetica, Arial, sans-serif;
+	font-family: 'Oswald', sans-serif;
+	font-size:2vw;
 	font-size: 20px;
 	/*disable selection*/
 	user-select: none;
@@ -20,17 +20,52 @@ table {width:100%;}
 	
 .mainRight {
 	padding-right: 50px;
-	text-align:left;
+	text-align:center;
 }
 	
-td {
-	/*border-top: solid;
-	border-bottom: solid;
-	border-left: solid;
-	border-right: solid;*/
-	vertical-align: top;
-	text-align: left;
-
+table {
+	color:white;
+	font-size:3vw;
+	font-weight: 300;
+	line-height: 3vw;
+	
 }
+
+td {
+	text-align: center;
+}
+
+.event {
+	padding-top:10vw;
+	font-size:6vw;
+	font-weight: 700;
+}
+
+.desc {
+	font-size:3vw;
+	line-height: 3.5vw;
+	padding-bottom:2vw;
+}
+
+.opacity {
+	color: #b9c0d0;
+}
+
+.cost {
+	font-size:3vw;
+	font-weight: 300;
+}
+
+.type {
+	font-size:3vw;
+	font-weight: 300;
+}
+
+
+.website {
+	font-size:3vw;
+	padding-top:2vw;
+}
+
 
 
