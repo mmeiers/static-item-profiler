@@ -64,8 +64,7 @@ table {width:100%;}
 	
 }
 .row {
-	margin-bottom: -10px;
-	
+	margin-bottom: -40px;	
 }
 .mainContent {
 	z-index: 99999;
@@ -100,7 +99,7 @@ td {
 	font-weight: 700;
 }
 
-.desc {
+.description {
 	font-size:3vw;
 	line-height: 3.5vw;
 	padding-bottom:2vw;
