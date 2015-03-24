@@ -11,6 +11,8 @@ body
 	margin:0;
     overflow:hidden;
     background-size:contain; 
+	background: transparent !important;
+	
 }
 
 #background {
@@ -61,13 +63,18 @@ table {width:100%;}
 	background-repeat: none;
 	
 }
+.row {
+	margin-bottom: -10px;
+	
+}
 .mainContent {
 	z-index: 99999;
 	position: absolute;
 	top:0;
-	left:0;
-	width:100%;
+	left:5%;
+	width:90%;
 	height:100%;
+
 }
 	
 .mainRight {
